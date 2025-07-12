@@ -1,0 +1,260 @@
+<!-- Pranav -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+  <link as="style"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+    onload="this.rel='stylesheet'" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <title>Dashboard | REDHOPE</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #EF4444;
+      --secondary-color: #F3F4F6;
+      --text-primary: #1F2937;
+      --text-secondary: #6B7280;
+      --accent-color: #3B82F6;
+    }
+
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'liga';
+    }
+  </style>
+</head>
+
+<body class="bg-[var(--secondary-color)]" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="flex h-full grow flex-row">
+      <!-- Sidebar -->
+      <aside class="flex flex-col w-20 bg-white p-4 shadow-lg items-center space-y-6 fixed top-0 left-0 h-screen z-50">
+        <div class="flex flex-col items-center mb-8">
+          <div class="h-8 w-8 text-[#e53e3e]">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6_319)">
+                <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h1 class="text-[var(--text-primary)] text-xs font-semibold leading-normal mt-1">REDHOPE</h1>
+        </div>
+        <nav class="flex flex-col gap-6 items-center">
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="dashboard.html" title="Dashboard">
+            <span class="material-icons">dashboard</span>
+            <span class="text-xs mt-1">Dashboard</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="delivery.html" title="Deliveries">
+            <span class="material-icons">local_shipping</span>
+            <span class="text-xs mt-1">Deliveries</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="newrequest.html" title="New Request">
+            <span class="material-icons">add_circle_outline</span>
+            <span class="text-xs mt-1 w-full text-center">New Request</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="inventory.html" title="Inventory">
+            <span class="material-icons">inventory_2</span>
+            <span class="text-xs mt-1">Inventory</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="report.html" title="Reports">
+            <span class="material-icons">assessment</span>
+            <span class="text-xs mt-1">Reports</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8 ml-20">
+        <!-- Header -->
+        <header class="flex flex-wrap justify-between items-center mb-8">
+          <h1 class="text-[var(--text-primary)] text-3xl font-bold leading-tight">Dashboard</h1>
+          <div class="flex items-center gap-6">
+            <div class="mt-auto flex items-center">
+              <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+                href="#" title="Settings">
+                <span class="material-icons">settings</span>
+              </a>
+            </div>
+            <!-- Admin dropdown -->
+            <div class="relative inline-block text-left mt-1">
+              <div onclick="toggleDropdown()" class="flex flex-col items-center cursor-pointer">
+                <img alt="Admin Avatar" class="w-10 h-10 rounded-full mb-1"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCymNahsLF25Tx8djZ0Bm_NekaalYcwCC6JjU7h9dVJK59GpyWN8YDgedigRAaOALlNfChNc-G7KC7Nmw1imrPZ8AlkSLIsZqmgRKYN-3sTTZhXiG7gtsN6B3pd4zN1KRuXK5WpTx_tx8nQnhdWHocrGvNjry5zuX55eGgRPs1pLfunb4kim0HrdNXmxJdaXo1V0i_H-yeILn0hZ8m90h-jISppf8evF014tEiGgIKSySq3tjHairoTisU0dkBFnNvS5Tg6pvO4U5Kl" />
+                <p class="text-[var(--text-secondary)] text-xs font-normal">Admin</p>
+              </div>
+              <div id="dropdown"
+                class="absolute right-0 z-10 mt-2 w-28 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 hidden">
+                <div class="py-1 text-sm text-[var(--text-primary)]">
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100">My Requests</a>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100">Notifications</a>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100">Feedback / Support	</a>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 text-red-500">Logout</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logout -->
+            <a href="index.html"
+              class="text-[var(--text-secondary)] text-xs hover:text-[var(--primary-color)] mt-2">Logout</a>
+
+            <!-- New Request Button -->
+            <button
+              class="flex items-center justify-center gap-2 rounded-lg h-10 px-6 bg-[var(--primary-color)] text-white text-sm font-semibold shadow-md hover:bg-red-700 transition-colors duration-150 ease-in-out"
+              onclick="window.location.href='newrequest.html'">
+              <span class="material-icons text-lg">add_circle_outline</span>
+              <span class="truncate">New Request</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Summary Cards -->
+        <section>
+          <h2 class="text-[var(--text-primary)] text-xl font-semibold leading-tight tracking-tight mb-6">Summary</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)]">Active Requests</h3>
+                <span class="material-icons text-[var(--accent-color)]">directions_run</span>
+              </div>
+              <p class="text-4xl font-bold text-[var(--primary-color)]">12</p>
+              <p class="text-sm text-[var(--text-secondary)] mt-1">Currently in progress</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)]">Completed Requests</h3>
+                <span class="material-icons text-green-500">check_circle</span>
+              </div>
+              <p class="text-4xl font-bold text-green-600">45</p>
+              <p class="text-sm text-[var(--text-secondary)] mt-1">Successfully delivered</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)]">Pending Requests</h3>
+                <span class="material-icons text-yellow-500">hourglass_empty</span>
+              </div>
+              <p class="text-4xl font-bold text-yellow-600">5</p>
+              <p class="text-sm text-[var(--text-secondary)] mt-1">Awaiting assignment</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)]">Total Requests</h3>
+                <span class="material-icons text-[var(--text-secondary)]">summarize</span>
+              </div>
+              <p class="text-4xl font-bold text-[var(--primary-color)]">62</p>
+              <p class="text-sm text-[var(--text-secondary)] mt-1">All time requests</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Activity Table -->
+        <section class="mt-10">
+          <h2 class="text-[var(--text-primary)] text-xl font-semibold leading-tight tracking-tight mb-6">Recent Activity
+          </h2>
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-gray-200">
+                  <th class="py-3 px-4 text-sm font-semibold text-[var(--text-secondary)]">Request ID</th>
+                  <th class="py-3 px-4 text-sm font-semibold text-[var(--text-secondary)]">Type</th>
+                  <th class="py-3 px-4 text-sm font-semibold text-[var(--text-secondary)]">Destination</th>
+                  <th class="py-3 px-4 text-sm font-semibold text-[var(--text-secondary)]">Status</th>
+                  <th class="py-3 px-4 text-sm font-semibold text-[var(--text-secondary)]">Last Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)] font-medium">#RQ78923</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">Blood (O-)</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">City General Hospital</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span class="px-2 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full">In
+                      Transit</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-secondary)]">2 mins ago</td>
+                </tr>
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)] font-medium">#RQ78922</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">Organ (Kidney)</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">St. Luke's Medical</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span
+                      class="px-2 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full">Delivered</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-secondary)]">1 hour ago</td>
+                </tr>
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)] font-medium">#RQ78921</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">Plasma</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">Community Health Clinic</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span
+                      class="px-2 py-1 text-xs font-semibold text-yellow-700 bg-yellow-100 rounded-full">Pending</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-secondary)]">3 hours ago</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)] font-medium">#RQ78920</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">Blood (A+)</td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-primary)]">Red Cross Center</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span
+                      class="px-2 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full">Delivered</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-[var(--text-secondary)]">Yesterday</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="mt-4 text-right">
+              <a class="text-sm font-medium text-[var(--primary-color)] hover:text-red-700" href="#">View All Requests
+                →</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- JavaScript to handle dropdown -->
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown");
+      dropdown.classList.toggle("hidden");
+    }
+
+    window.addEventListener("click", function (e) {
+      const dropdown = document.getElementById("dropdown");
+      const admin = dropdown.previousElementSibling;
+      if (!admin.contains(e.target)) {
+        dropdown.classList.add("hidden");
+      }
+    });
+  </script>
+</body>
+
+</html>

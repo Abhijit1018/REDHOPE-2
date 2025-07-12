@@ -1,0 +1,153 @@
+<html><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <title>New Request | REDHOPE</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+          :root {
+            --primary-color: #141414;
+            --secondary-color: #F2F2F2;
+            --accent-color: #DC2626;--text-primary: #141414;
+            --text-secondary: #757575;
+            --background-light: #FFFFFF;
+            --background-dark: #F9FAFB;--border-color: #E0E0E0;
+          }
+          body {
+            font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+          }
+          .form-input, .form-select {
+            border-color: var(--border-color);
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+          }
+          .form-input:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(20, 20, 20, 0.2);
+            outline: none;
+          }
+          .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;padding: 0.75rem;border-radius: 0.5rem;color: var(--text-primary);
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+          }
+          .nav-item:hover {
+            background-color: var(--secondary-color);
+          }
+          .nav-item.active {
+            background-color: var(--primary-color);
+            color: var(--background-light);
+          }
+          .nav-item.active .material-symbols-outlined {
+            color: var(--background-light);
+          }
+          .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
+          }
+        </style>
+    </head>
+    <body class="bg-[var(--background-dark)]">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style="--select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(117,117,117)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e');">
+    <div class="flex h-full grow">
+      <!-- Sidebar -->
+      <aside class="flex flex-col w-20 bg-white p-4 shadow-lg items-center space-y-6 fixed top-0 left-0 h-screen z-50">
+        <div class="flex flex-col items-center mb-8">
+          <div class="h-8 w-8 text-[#e53e3e]">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6_319)">
+                <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h1 class="text-[var(--primary-color)] text-xs font-semibold leading-normal mt-1">REDHOPE</h1>
+        </div>
+        <nav class="flex flex-col gap-6 items-center">
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="dashboard.html" title="Dashboard">
+            <span class="material-icons">dashboard</span>
+            <span class="text-xs mt-1">Dashboard</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="delivery.html" title="Deliveries">
+            <span class="material-icons">local_shipping</span>
+            <span class="text-xs mt-1">Deliveries</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--primary-color)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg bg-red-50"
+            href="newrequest.html" title="New Request">
+            <span class="material-icons">add_circle_outline</span>
+            <span class="text-xs mt-1 w-full text-center">New Request</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="inventory.html" title="Inventory">
+            <span class="material-icons">inventory_2</span>
+            <span class="text-xs mt-1">Inventory</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="report.html" title="Reports">
+            <span class="material-icons">assessment</span>
+            <span class="text-xs mt-1">Reports</span>
+          </a>
+        </nav>
+    </aside>
+    <main class="ml-20 flex-1 p-8">
+    <header class="mb-8">
+    <h2 class="text-[var(--primary-color)] text-3xl font-bold leading-tight">New Request</h2>
+    </header>
+    <div class="bg-[var(--background-light)] p-6 rounded-lg shadow-sm max-w-2xl mx-auto">
+    <form class="space-y-6">
+    <div>
+    <label class="block text-[var(--primary-color)] text-sm font-medium leading-normal pb-1.5" for="blood-organ-type">Blood/Organ Type</label>
+    <select class="form-select mt-1 block w-full rounded-lg text-[var(--primary-color)] focus:outline-0 focus:ring-0 border border-[var(--border-color)] bg-[var(--background-light)] h-12 px-3 text-sm font-normal leading-normal bg-[image:--select-button-svg] appearance-none" id="blood-organ-type">
+    <option value="">Select Type</option>
+    <option value="blood_a_positive">Blood - A+</option>
+    <option value="blood_o_negative">Blood - O-</option>
+    <option value="kidney">Organ - Kidney</option>
+    <option value="liver">Organ - Liver</option>
+    </select>
+    </div>
+    <div>
+    <label class="block text-[var(--primary-color)] text-sm font-medium leading-normal pb-1.5" for="urgency-level">Urgency Level</label>
+    <select class="form-select mt-1 block w-full rounded-lg text-[var(--primary-color)] focus:outline-0 focus:ring-0 border border-[var(--border-color)] bg-[var(--background-light)] h-12 px-3 text-sm font-normal leading-normal bg-[image:--select-button-svg] appearance-none" id="urgency-level">
+    <option value="">Select Urgency</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+    </select>
+    </div>
+    <div>
+    <label class="block text-[var(--primary-color)] text-sm font-medium leading-normal pb-1.5" for="delivery-location">Delivery Location</label>
+    <input class="form-input mt-1 block w-full rounded-lg text-[var(--primary-color)] focus:outline-0 focus:ring-0 border border-[var(--border-color)] bg-[var(--background-light)] h-12 px-3 placeholder:text-[var(--text-secondary)] text-sm font-normal leading-normal" id="delivery-location" placeholder="Enter full address or facility name" type="text" value=""/>
+    </div>
+    <div class="flex justify-end pt-4">
+    <button class="flex items-center justify-center rounded-lg h-11 px-6 bg-[var(--primary-color)] text-[var(--background-light)] text-sm font-semibold leading-normal tracking-wide hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-color)] transition-colors" type="submit" onclick="window.location.href='delivery.html'">
+    <span class="material-symbols-outlined mr-2 !text-xl !text-[var(--background-light)]">send</span>
+                      Submit Request
+                    </button>
+    </div>
+    </form>
+    </div>
+    </main>
+    </div>
+    </div>
+    
+    </body></html>
