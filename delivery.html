@@ -1,0 +1,254 @@
+<html><head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <title>Delivery | REDHOPE</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+          :root {
+            --primary-color: #141414;
+            --secondary-color: #757575;
+            --accent-color: #2F6FEB;--background-color: #F9FAFB;--border-color: #E5E7EB;
+            --card-background: #FFFFFF;
+          }
+          .sidebar-item {
+            @apply flex items-center gap-3 px-4 py-3 rounded-lg text-[var(--secondary-color)] hover:bg-[var(--accent-color)] hover:text-white transition-colors duration-200;
+          }
+          .sidebar-item.active {
+            @apply bg-[var(--accent-color)] text-white;
+          }
+          .sidebar-item svg {
+             @apply fill-current;
+          }
+          .tab-item {
+            @apply flex flex-col items-center justify-center border-b-2 pb-[13px] pt-4 text-[var(--secondary-color)] hover:text-[var(--primary-color)] hover:border-b-[var(--primary-color)] transition-colors duration-200;
+          }
+          .tab-item.active {
+            @apply border-b-[var(--accent-color)] text-[var(--accent-color)] font-semibold;
+          }
+          .status-badge {
+            @apply flex items-center justify-center overflow-hidden rounded-full h-7 px-3 text-xs font-medium leading-normal;
+          }
+          .status-en-route {
+            @apply bg-blue-100 text-blue-700;
+          }
+          .status-pending {
+            @apply bg-yellow-100 text-yellow-700;
+          }
+          .status-assigned {
+            @apply bg-indigo-100 text-indigo-700;
+          }
+          .status-delivered {
+            @apply bg-green-100 text-green-700;
+          }
+          .table th {
+            @apply px-6 py-4 text-left text-xs font-medium text-[var(--secondary-color)] uppercase tracking-wider;
+          }
+          .table td {
+            @apply px-6 py-4 whitespace-nowrap text-sm;
+          }
+          .table .action-link {
+            @apply text-[var(--accent-color)] hover:text-blue-700 font-medium;
+          }
+          .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
+          }
+        </style>
+    </head>
+    <body class="bg-[var(--background-color)]" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="flex h-full grow">
+      <!-- Sidebar -->
+      <aside class="flex flex-col w-20 bg-white p-4 shadow-lg items-center space-y-6 fixed top-0 left-0 h-screen z-50">
+        <div class="flex flex-col items-center mb-8">
+          <div class="h-8 w-8 text-[#e53e3e]">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6_319)">
+                <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h1 class="text-[var(--primary-color)] text-xs font-semibold leading-normal mt-1">REDHOPE</h1>
+        </div>
+        <nav class="flex flex-col gap-6 items-center">
+          <a class="flex flex-col items-center text-[var(--secondary-color)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="dashboard.html" title="Dashboard">
+            <span class="material-icons">dashboard</span>
+            <span class="text-xs mt-1">Dashboard</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--primary-color)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg bg-red-50"
+            href="delivery.html" title="Deliveries">
+            <span class="material-icons">local_shipping</span>
+            <span class="text-xs mt-1">Deliveries</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--secondary-color)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="newrequest.html" title="New Request">
+            <span class="material-icons">add_circle_outline</span>
+            <span class="text-xs mt-1 w-full text-center">New Request</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--secondary-color)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="inventory.html" title="Inventory">
+            <span class="material-icons">inventory_2</span>
+            <span class="text-xs mt-1">Inventory</span>
+          </a>
+          <a class="flex flex-col items-center text-[var(--secondary-color)] hover:text-[var(--primary-color)] hover:bg-red-50 p-2 rounded-lg"
+            href="report.html" title="Reports">
+            <span class="material-icons">assessment</span>
+            <span class="text-xs mt-1">Reports</span>
+          </a>
+        </nav>
+    </aside>
+    <main class="ml-20 flex-1 p-8">
+    <div class="mb-8">
+    <h2 class="text-[var(--primary-color)] tracking-tight text-3xl font-bold leading-tight">Order Tracking</h2>
+    <p class="text-[var(--secondary-color)] text-sm font-normal leading-normal mt-1">Track the status of your deliveries in real-time</p>
+    </div>
+    <div class="mb-6">
+    <div class="flex border-b border-[var(--border-color)] gap-8">
+    <a class="tab-item" href="#">
+    <p class="text-sm font-medium tracking-[0.015em]">Pending</p>
+    </a>
+    <a class="tab-item" href="#">
+    <p class="text-sm font-medium tracking-[0.015em]">Assigned</p>
+    </a>
+    <a class="tab-item active" href="#">
+    <p class="text-sm font-medium tracking-[0.015em]">En Route</p>
+    </a>
+    <a class="tab-item" href="#">
+    <p class="text-sm font-medium tracking-[0.015em]">Delivered</p>
+    </a>
+    </div>
+    </div>
+    <div class="@container">
+    <div class="overflow-x-auto rounded-lg border border-[var(--border-color)] bg-[var(--card-background)] shadow-sm">
+    <table class="min-w-full divide-y divide-[var(--border-color)] table">
+    <thead class="bg-gray-50">
+    <tr>
+    <th class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-120" scope="col">Order ID</th>
+    <th class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240" scope="col">Recipient</th>
+    <th class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-360" scope="col">Status</th>
+    <th class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480" scope="col">Estimated Delivery</th>
+    <th class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600" scope="col">Driver</th>
+    <th class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720" scope="col">Vehicle</th>
+    <th class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-840" scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody class="divide-y divide-[var(--border-color)]">
+    <tr>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-120 text-[var(--primary-color)] font-medium">#12345</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240 text-[var(--secondary-color)]">St. Jude Hospital</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-360">
+    <span class="status-badge status-en-route">En Route</span>
+    </td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480 text-[var(--secondary-color)]">10:30 AM</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600 text-[var(--secondary-color)]">Alex Johnson</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720 text-[var(--secondary-color)]">Van</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-840">
+    <a class="action-link" href="#">View Details</a>
+    </td>
+    </tr>
+    <tr>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-120 text-[var(--primary-color)] font-medium">#12346</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240 text-[var(--secondary-color)]">City General Hospital</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-360">
+    <span class="status-badge status-en-route">En Route</span>
+    </td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480 text-[var(--secondary-color)]">11:00 AM</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600 text-[var(--secondary-color)]">Maria Rodriguez</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720 text-[var(--secondary-color)]">Truck</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-840">
+    <a class="action-link" href="#">View Details</a>
+    </td>
+    </tr>
+    <tr>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-120 text-[var(--primary-color)] font-medium">#12347</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240 text-[var(--secondary-color)]">Children's Medical Center</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-360">
+    <span class="status-badge status-en-route">En Route</span>
+    </td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480 text-[var(--secondary-color)]">11:15 AM</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600 text-[var(--secondary-color)]">David Lee</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720 text-[var(--secondary-color)]">Van</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-840">
+    <a class="action-link" href="#">View Details</a>
+    </td>
+    </tr>
+    <tr>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-120 text-[var(--primary-color)] font-medium">#12348</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240 text-[var(--secondary-color)]">Community Health Clinic</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-360">
+    <span class="status-badge status-en-route">En Route</span>
+    </td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480 text-[var(--secondary-color)]">11:30 AM</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600 text-[var(--secondary-color)]">Sarah Chen</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720 text-[var(--secondary-color)]">Truck</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-840">
+    <a class="action-link" href="#">View Details</a>
+    </td>
+    </tr>
+    <tr>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-120 text-[var(--primary-color)] font-medium">#12349</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240 text-[var(--secondary-color)]">Regional Trauma Center</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-360">
+    <span class="status-badge status-en-route">En Route</span>
+    </td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480 text-[var(--secondary-color)]">12:00 PM</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600 text-[var(--secondary-color)]">Michael Brown</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720 text-[var(--secondary-color)]">Van</td>
+    <td class="table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-840">
+    <a class="action-link" href="#">View Details</a>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <style>
+                  @media (max-width: 1280px) {
+                    .table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720 { display: none; }}
+                  @media (max-width: 1024px) {
+                    .table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600 { display: none; }.table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480 { display: none; }}
+                  @media (max-width: 768px) {
+                    .table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240 { display: none; }.sidebar {
+                        transform: translateX(-100%);
+                        transition: transform 0.3s ease-in-out;
+                      }
+                      .sidebar.open {
+                        transform: translateX(0);
+                      }
+                      .main-content {
+                        margin-left: 0;
+                      }
+                      .header-title {
+                        font-size: 24px;
+                      }
+                  }
+                   @container(max-width:600px){.table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-240{display: none;}}
+                  @container(max-width:450px){.table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-480{display: none;}}
+                  @container(max-width:350px){.table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-600{display: none;}}
+                  @container(max-width:250px){.table-608f6b5f-cfe1-4a01-8ee1-564a01fb15c8-column-720{display: none;}}
+                </style>
+    </div>
+    </main>
+    </div>
+    </div>
+    
+    </body></html>

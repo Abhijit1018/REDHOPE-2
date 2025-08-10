@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Connection Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; }
+        #console { background: #f8f9fa; border: 1px solid #dee2e6; padding: 15px; margin: 20px 0; border-radius: 5px; font-family: monospace; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <h1>Firebase Connection Test</h1>
+    <p>This page tests Firebase connectivity to help debug deployment issues.</p>
+    
+    <button onclick="runTests()">Run Firebase Tests</button>
+    <button onclick="clearConsole()">Clear Console</button>
+    <button onclick="testCreateUser()">Test User Creation</button>
+    
+    <div id="results"></div>
+    
+    <h3>Console Output:</h3>
+    <div id="console"></div>
+    
+    <script type="module" src="js/firebase-debug.js"></script>
+    
+    <script>
+        // Override console.log to capture output
+        const originalLog = console.log;
+        const originalError = console.error;
+        const consoleDiv = document.getElementById('console');
+        const resultsDiv = document.getElementById('results');
+        
+        function addToConsole(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}\n`;
+            consoleDiv.textContent += logEntry;
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '));
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole('ERROR: ' + args.join(' '), 'error');
+        };
+        
+        function clearConsole() {
+            consoleDiv.textContent = '';
+        }
+        
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.textContent = message;
+            resultsDiv.appendChild(div);
+        }
+        
+        async function runTests() {
+            resultsDiv.innerHTML = '';
+            addResult('Starting Firebase tests...', 'info');
+            
+            if (typeof firebaseDebug !== 'undefined') {
+                try {
+                    await firebaseDebug.runAllTests();
+                    addResult('Tests completed. Check console for details.', 'success');
+                } catch (error) {
+                    addResult('Tests failed: ' + error.message, 'error');
+                }
+            } else {
+                addResult('Firebase debug module not loaded. Check script loading.', 'error');
+            }
+        }
+        
+        async function testCreateUser() {
+            addResult('Testing user creation...', 'info');
+            
+            try {
+                // Import Firebase modules directly for testing
+                const { initializeApp } = await import('https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js');
+                const { getAuth, createUserWithEmailAndPassword } = await import('https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js');
+                const { getFirestore, setDoc, doc } = await import('https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js');
+                
+                const firebaseConfig = {
+                    apiKey: "AIzaSyDFZsh1x2D0nCJIm1SYM-6vkqvHFkHPyIU",
+                    authDomain: "redhope-2.firebaseapp.com",
+                    projectId: "redhope-2",
+                    storageBucket: "redhope-2.firebasestorage.app",
+                    messagingSenderId: "826738979676",
+                    appId: "1:826738979676:web:01436efd6c8c3d6ac04799",
+                    measurementId: "G-GCF9E7J5JD"
+                };
+                
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                const db = getFirestore(app);
+                
+                addResult('Firebase initialized successfully', 'success');
+                
+                // Test with a unique email
+                const testEmail = `test-${Date.now()}@example.com`;
+                const testPassword = 'testpass123';
+                
+                addResult(`Attempting to create test user: ${testEmail}`, 'info');
+                
+                const userCredential = await createUserWithEmailAndPassword(auth, testEmail, testPassword);
+                const user = userCredential.user;
+                
+                addResult(`User created successfully with UID: ${user.uid}`, 'success');
+                
+                // Test Firestore write
+                await setDoc(doc(db, "test-users", user.uid), {
+                    email: testEmail,
+                    createdAt: new Date().toISOString(),
+                    test: true
+                });
+                
+                addResult('User data saved to Firestore successfully', 'success');
+                
+                // Clean up - delete the test user
+                await user.delete();
+                addResult('Test user cleaned up successfully', 'success');
+                
+            } catch (error) {
+                addResult(`User creation test failed: ${error.message}`, 'error');
+                console.error('Full error:', error);
+            }
+        }
+        
+        // Auto-run tests when page loads
+        window.addEventListener('load', () => {
+            addResult('Page loaded. Firebase debug module should be available shortly.', 'info');
+            setTimeout(() => {
+                if (typeof firebaseDebug !== 'undefined') {
+                    addResult('Firebase debug module loaded successfully', 'success');
+                } else {
+                    addResult('Firebase debug module not loaded after timeout', 'error');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 

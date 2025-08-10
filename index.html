@@ -1,0 +1,76 @@
+<html><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <title>Login | REDHOPE</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script type="module" src="js/login.js" defer></script>
+    <style type="text/tailwindcss">
+          :root {
+            --primary-color: #141414;
+            --primary-color-hover: #2a2a2a;
+            --secondary-color: #e53e3e;--secondary-color-hover: #c53030;
+            --accent-color: #f2f2f2;
+            --text-primary: #141414;
+            --text-secondary: #4a5568;--text-light: #f7fafc;}
+          body {
+            font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+          }
+        </style>
+    </head>
+    <body class="bg-slate-50">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-slate-200 px-6 sm:px-10 py-4 bg-white shadow-sm">
+    <div class="flex items-center gap-3 sm:gap-4 text-[var(--text-primary)]">
+    <div class="h-8 w-8 text-[var(--secondary-color)]">
+    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_6_319)">
+    <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+    </g>
+    <defs>
+    <clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath>
+    </defs>
+    </svg>
+    </div>
+    <h1 class="text-[var(--text-primary)] text-xl sm:text-2xl font-bold tracking-tight">REDHOPE</h1>
+    </div>
+    </header>
+    <main class="flex flex-1 items-center justify-center py-10 sm:py-16 bg-gradient-to-br from-slate-100 to-slate-200">
+    <div class="w-full max-w-md p-6 sm:p-10 bg-white rounded-xl shadow-2xl">
+    <h2 class="text-[var(--text-primary)] text-3xl sm:text-4xl font-bold tracking-tight text-center mb-8">Login</h2>
+    <form class="space-y-6">
+    <div>
+    <label class="block text-sm font-semibold text-[var(--text-primary)] mb-2" for="email">Email Address</label>
+    <input autocomplete="email" class="form-input block w-full rounded-lg border-slate-300 bg-slate-50 p-4 text-[var(--text-primary)] placeholder:text-slate-400 focus:border-[var(--secondary-color)] focus:ring-[var(--secondary-color)] transition duration-150 ease-in-out h-12 text-base" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+    </div>
+    <div>
+    <label class="block text-sm font-semibold text-[var(--text-primary)] mb-2" for="password">Password</label>
+    <input autocomplete="current-password" class="form-input block w-full rounded-lg border-slate-300 bg-slate-50 p-4 text-[var(--text-primary)] placeholder:text-slate-400 focus:border-[var(--secondary-color)] focus:ring-[var(--secondary-color)] transition duration-150 ease-in-out h-12 text-base" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+    </div>
+    <div class="flex items-center justify-between">
+    <div class="flex items-center">
+    <input class="h-4 w-4 rounded border-slate-300 text-[var(--secondary-color)] focus:ring-[var(--secondary-color)]" id="remember-me" name="remember-me" type="checkbox"/>
+    <label class="ml-2 block text-sm text-[var(--text-secondary)]" for="remember-me"> Remember me </label>
+    </div>
+    <div class="text-sm">
+    <a class="font-medium text-[var(--secondary-color)] hover:text-[var(--secondary-color-hover)]" href="#"> Forgot your password? </a>
+    </div>
+    </div>
+    <div>
+    <button class="flex w-full justify-center rounded-lg bg-[var(--primary-color)] hover:bg-[var(--primary-color-hover)] px-4 py-3 text-base font-semibold text-[var(--text-light)] shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-color)] transition-colors duration-150" id="submit"  type="submit">
+                      Log In
+                    </button>
+    </div>
+    </form>
+    <p class="mt-10 text-center text-sm text-[var(--text-secondary)]">
+                  Don't have an account?
+                  <a class="font-semibold leading-6 text-[var(--secondary-color)] hover:text-[var(--secondary-color-hover)]" href="createaccount.html">Sign up</a>
+    </p>
+    </div>
+    </main>
+    </div>
+    </div>
+    
+    </body></html>

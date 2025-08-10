@@ -1,0 +1,99 @@
+<html><head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <title>Create Account | REDHOPE</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script type="module" src="js/firebase-config-check.js" defer></script>
+    <script type="module" src="js/firebase-debug.js" defer></script>
+    <script type="module" src="js/register.js" defer></script>
+    
+    <style type="text/tailwindcss">
+          :root {
+            --primary-color: #141414;
+            --secondary-color: #ef4444;--accent-color: #f3f4f6;--text-primary: #1f2937;--text-secondary: #6b7280;}
+          body {
+            font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+          }
+          .form-input {
+            @apply w-full rounded-md border border-[var(--accent-color)] bg-white px-4 py-3 text-[var(--text-primary)] focus:border-[var(--secondary-color)] focus:ring focus:ring-[var(--secondary-color)] focus:ring-opacity-50 placeholder:text-[var(--text-secondary)];
+          }
+          .btn-primary {
+            @apply w-full rounded-lg bg-[var(--primary-color)] py-3 px-5 text-white text-base font-semibold shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-offset-2 transition-colors duration-150;
+          }
+          .btn-secondary {
+            @apply rounded-lg border border-[var(--primary-color)] bg-transparent py-2 px-4 text-[var(--primary-color)] text-sm font-medium hover:bg-[var(--accent-color)] transition-colors duration-150;
+          }
+          .logo-mark {
+            @apply text-[var(--secondary-color)];
+          }
+        </style>
+    </head>
+    <body class="bg-gray-50 text-[var(--text-primary)]">
+    <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+    <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--accent-color)] bg-white px-6 sm:px-10 py-4 shadow-sm">
+    <div class="flex items-center gap-3">
+    <div class="size-7 logo-mark">
+    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+    </svg>
+    </div>
+    <h1 class="text-[var(--primary-color)] text-xl font-bold tracking-tight">REDHOPE</h1>
+    </div>
+    <nav class="flex items-center gap-4 sm:gap-6">
+    <a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">About</a>
+    <a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">Contact</a>
+    <a class="btn-secondary" href="index.html">Log In</a>
+    </nav>
+    </header>
+    <main class="flex flex-1 items-center justify-center py-10 sm:py-16 px-4">
+    <div class="w-full max-w-md space-y-8 rounded-xl bg-white p-8 sm:p-10 shadow-xl">
+    <div class="text-center">
+    <h2 class="text-3xl font-extrabold text-[var(--primary-color)]">Create Your Account</h2>
+    <p class="mt-2 text-sm text-[var(--text-secondary)]">Join LifeFlow to streamline emergency deliveries.</p>
+    </div>
+    <form class="space-y-6">
+    <div>
+    <label class="block text-sm font-medium text-[var(--text-primary)]" for="full-name">Full Name</label>
+    <div class="mt-1">
+    <input class="form-input" id="full-name" name="full-name" placeholder="Enter your full name" required="" type="text"/>
+    </div>
+    </div>
+    <div>
+    <label class="block text-sm font-medium text-[var(--text-primary)]" for="email">Email Address</label>
+    <div class="mt-1">
+    <input autocomplete="email" class="form-input" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+    </div>
+    </div>
+    <div>
+    <label class="block text-sm font-medium text-[var(--text-primary)]" for="password">Password</label>
+    <div class="mt-1">
+    <input autocomplete="new-password" class="form-input" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+    </div>
+    </div>
+    <div>
+    <label class="block text-sm font-medium text-[var(--text-primary)]" for="role">Role</label>
+    <div class="mt-1">
+    <select class="form-input appearance-none bg-no-repeat bg-right px-4 py-3 pr-8" id="role" name="role" required="" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e'); background-position: right 0.75rem center; background-size: 1.25em 1.25em;">
+    <option class="text-[var(--text-secondary)]" disabled="" selected="" value="">Select your role</option>
+    <option value="hospital">Hospital</option>
+    <option value="vendor">Vendor</option>
+    </select>
+    </div>
+    </div>
+    <div>
+    <button class="btn-primary" id="submit" type="submit">Create Account</button>
+    </div>
+    </form>
+    <p class="mt-6 text-center text-sm text-[var(--text-secondary)]">
+                  Already have an account?
+                  <a class="font-medium text-[var(--secondary-color)] hover:text-red-700 hover:underline" href="index.html">Log in</a>
+    </p>
+    </div>
+    </main>
+    </div>
+    </div>
+    
+    </body></html>
